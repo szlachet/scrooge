@@ -1,10 +1,9 @@
-package com.szlachet.scrooge.business.cashflow.entity;
+package com.szlachet.scrooge.business.transactions.entity;
 
+import com.szlachet.scrooge.business.categories.entity.Category;
 import com.szlachet.scrooge.BaseEntity;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.CascadeType.PERSIST;
 import javax.persistence.Column;
@@ -15,7 +14,7 @@ import static javax.persistence.FetchType.EAGER;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -35,9 +34,17 @@ public class Transaction extends BaseEntity {
     @Column(name = "Description")
     private String description;
 
-    @OneToMany(fetch = EAGER, cascade = {PERSIST, MERGE})
+    @OneToOne(fetch = EAGER, cascade = {PERSIST, MERGE})
     @JoinColumn(name = "CategorieID", referencedColumnName = "ID")
-    private Set<Category> categories;
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public Date getTrxDate() {
         return trxDate;
@@ -61,20 +68,5 @@ public class Transaction extends BaseEntity {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Set<Category> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(Set<Category> categories) {
-        this.categories = categories;
-    }
-   
-    public void addCategory(Category category) {
-        if(categories == null) {
-            categories = new HashSet<>();
-        }
-        categories.add(category);
     }
 }

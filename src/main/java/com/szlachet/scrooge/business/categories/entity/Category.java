@@ -1,4 +1,4 @@
-package com.szlachet.scrooge.business.cashflow.entity;
+package com.szlachet.scrooge.business.categories.entity;
 
 import com.szlachet.scrooge.BaseEntity;
 import javax.persistence.Column;

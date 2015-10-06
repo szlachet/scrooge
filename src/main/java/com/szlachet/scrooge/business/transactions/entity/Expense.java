@@ -1,4 +1,4 @@
-package com.szlachet.scrooge.business.cashflow.entity;
+package com.szlachet.scrooge.business.transactions.entity;
 
 import javax.persistence.Entity;
 
@@ -7,7 +7,7 @@ import javax.persistence.Entity;
  * @author Sebastian Szlachetka
  */
 @Entity
-public class Income extends Transaction {
+public class Expense extends Transaction {
 
     
     

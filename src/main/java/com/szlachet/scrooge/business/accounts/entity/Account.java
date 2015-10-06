@@ -1,6 +1,7 @@
-package com.szlachet.scrooge.business.cashflow.entity;
+package com.szlachet.scrooge.business.accounts.entity;
 
 import com.szlachet.scrooge.BaseEntity;
+import com.szlachet.scrooge.business.transactions.entity.Transaction;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
